@@ -28,6 +28,6 @@ if data_input:
             st.markdown(f"**최빈값 :** {mode_str}")
 
     except ValueError:
-        st.error("❌ 숫자만 입력하세요. (예: 150,160,155,165,170)")
+        st.error("❌ 숫자만 입력하세요. (예: 150,155,160,165,170)")
 else:
     st.info("⬆️ 위에 데이터를 입력하면 결과가 표시됩니다.")

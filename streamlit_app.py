@@ -14,15 +14,18 @@ if data_input:
         # 대표값 계산
         mean = np.mean(data)
         median = np.median(data)
-        try:
-            mode = stats.mode(data)
-        except:
-            mode = "없음 (중복 최빈값)"
+        modes = stats.multimode(data)  # 여러 최빈값 모두 반환
 
-        # 결과 출력 (요구한 형식)
+        # 결과 출력
         st.markdown(f"**평균 :** {mean:.2f}")
         st.markdown(f"**중앙값 :** {median:.2f}")
-        st.markdown(f"**최빈값 :** {mode if isinstance(mode, str) else round(mode, 2)}")
+
+        # 최빈값 여러 개면 쉼표로 구분해서 출력
+        if len(modes) == len(set(data)):
+            st.markdown("**최빈값 :** 없음")
+        else:
+            mode_str = ", ".join([str(round(m, 2)) for m in modes])
+            st.markdown(f"**최빈값 :** {mode_str}")
 
     except ValueError:
         st.error("❌ 숫자만 입력하세요. (예: 150,160,155,165,170)")

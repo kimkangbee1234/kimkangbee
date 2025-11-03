@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import statistics as stats
 
-st.title("자료의 대표값 계산기 📊")
+st.title("자료의 대푯값 계산기 📊")
 
 data_input = st.text_area("자료를 쉼표로 구분하여 입력하세요 (예: 150,155,160,165,170)")
 
